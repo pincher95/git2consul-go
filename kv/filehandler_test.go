@@ -19,7 +19,6 @@ package kv
 import (
 	"bytes"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strings"
@@ -56,7 +55,7 @@ const (
 		"    - second_element: value_4\n"
 )
 
-//TestFile performs tests on implemented file handlers.
+// TestFile performs tests on implemented file handlers.
 // * yaml
 // * text
 func TestFileHandler(t *testing.T) {
@@ -68,7 +67,7 @@ func TestFileHandler(t *testing.T) {
 	}
 	filePath := filepath.Join(os.TempDir(), "foo.yml")
 	defer os.Remove(filePath)
-	err = ioutil.WriteFile(filePath, []byte(content), 0700)
+	err = os.WriteFile(filePath, []byte(content), 0700)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -85,7 +84,7 @@ func TestFileHandler(t *testing.T) {
 	t.Run("TestDeleteTextFile", func(t *testing.T) { testDeleteTextFile(t, repo) })
 }
 
-//testParsNodes verfies yaml file evaluation function.
+// testParsNodes verfies yaml file evaluation function.
 func testParseYamlEntries(t *testing.T) {
 	keys := entriesToKV(yamlTree)
 	if string(keys["ei_unix_cavisson::cavisson_collector_srv"]) != "10.206.96.18" {
@@ -148,19 +147,19 @@ func testDeleteTextFile(t *testing.T, repo repository.Repo) {
 	assert.NoError(t, err)
 }
 
-func (a mockHandler) PutKV(repo repository.Repo, path string, content []byte) error {
+func (a mockHandler) PutKV(_ repository.Repo, path string, content []byte) error {
 	keys[path] = content
 	return nil
 }
 
-func (a mockHandler) DeleteKV(repo repository.Repo, path string) error {
+func (a mockHandler) DeleteKV(_ repository.Repo, path string) error {
 	if a.filePath != path {
 		return fmt.Errorf("%s differs from %s", a.filePath, path)
 	}
 	return nil
 }
 
-func (a mockHandler) DeleteTreeKV(repo repository.Repo, path string) error {
+func (a mockHandler) DeleteTreeKV(_ repository.Repo, path string) error {
 	filePath := strings.TrimSuffix(a.filePath, filepath.Ext(a.filePath))
 	if filePath != path {
 		return fmt.Errorf("%s differs from %s", a.filePath, path)
@@ -168,6 +167,6 @@ func (a mockHandler) DeleteTreeKV(repo repository.Repo, path string) error {
 	return nil
 }
 
-func (a mockHandler) HandleUpdate(repo repository.Repo) error {
+func (a mockHandler) HandleUpdate(_ repository.Repo) error {
 	return nil
 }

@@ -17,7 +17,7 @@ limitations under the License.
 package kv
 
 import (
-	"io/ioutil"
+	"os"
 	"path/filepath"
 	"strconv"
 	"strings"
@@ -26,8 +26,8 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
-//File interface to manipulate data from various types
-//of files in the KV store.
+// File interface to manipulate data from various types
+// of files in the KV store.
 type File interface {
 	Update(kv Handler, repo repository.Repo) error
 	Create(kv Handler, repo repository.Repo) error
@@ -35,17 +35,17 @@ type File interface {
 	GetPath() string
 }
 
-//TextFile structure
+// TextFile structure
 type TextFile struct {
 	path string
 }
 
-//YAMLFile structure
+// YAMLFile structure
 type YAMLFile struct {
 	path string
 }
 
-//Init initializes new instance of File interface based on it's extension.
+// Init initializes new instance of File interface based on it's extension.
 func Init(path string, repo repository.Repo) File {
 	config := repo.GetConfig()
 	expandKeys := config.ExpandKeys
@@ -63,19 +63,19 @@ func Init(path string, repo repository.Repo) File {
 }
 
 func getContent(f File) ([]byte, error) {
-	content, err := ioutil.ReadFile(f.GetPath())
+	content, err := os.ReadFile(f.GetPath())
 	if err != nil {
 		return nil, err
 	}
 	return content, nil
 }
 
-//GetPath returns the path to the file.
+// GetPath returns the path to the file.
 func (f *TextFile) GetPath() string {
 	return f.path
 }
 
-//Create function creates the KV store entries based on the file content.
+// Create function creates the KV store entries based on the file content.
 func (f *TextFile) Create(kv Handler, repo repository.Repo) error {
 	content, err := getContent(f)
 	if err != nil {
@@ -88,12 +88,12 @@ func (f *TextFile) Create(kv Handler, repo repository.Repo) error {
 	return nil
 }
 
-//Update functions updates the KV store based on the file content.
+// Update functions updates the KV store based on the file content.
 func (f *TextFile) Update(kv Handler, repo repository.Repo) error {
 	return f.Create(kv, repo)
 }
 
-//Delete removes the key-value pair from the KV store.
+// Delete removes the key-value pair from the KV store.
 func (f *TextFile) Delete(kv Handler, repo repository.Repo) error {
 	err := kv.DeleteKV(repo, f.path)
 	if err != nil {
@@ -102,7 +102,7 @@ func (f *TextFile) Delete(kv Handler, repo repository.Repo) error {
 	return nil
 }
 
-//Create function creates the KV store entries based on the file content.
+// Create function creates the KV store entries based on the file content.
 func (f *YAMLFile) Create(kv Handler, repo repository.Repo) error {
 	content, err := getContent(f)
 	if err != nil {
@@ -125,13 +125,13 @@ func (f *YAMLFile) Create(kv Handler, repo repository.Repo) error {
 	return nil
 }
 
-//Update functions updates the KV store based on the file content.
+// Update functions updates the KV store based on the file content.
 func (f *YAMLFile) Update(kv Handler, repo repository.Repo) error {
 	f.Delete(kv, repo) //nolint:errcheck
 	return f.Create(kv, repo)
 }
 
-//Delete removes the key-value pairs from the KV store under given prefix.
+// Delete removes the key-value pairs from the KV store under given prefix.
 func (f *YAMLFile) Delete(kv Handler, repo repository.Repo) error {
 	path := f.GetPath()
 	extension := filepath.Ext(path)
@@ -143,7 +143,7 @@ func (f *YAMLFile) Delete(kv Handler, repo repository.Repo) error {
 	return nil
 }
 
-//GetPath returns the path to the file.
+// GetPath returns the path to the file.
 func (f *YAMLFile) GetPath() string {
 	return f.path
 }

@@ -17,7 +17,6 @@ limitations under the License.
 package kv
 
 import (
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -31,7 +30,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-//TestPutBranch verifies putBranch function.
+// TestPutBranch verifies putBranch function.
 func TestPutBranch(t *testing.T) {
 	var repo repository.Repo
 	_, path, _, _ := runtime.Caller(0)
@@ -60,7 +59,7 @@ func TestPutBranch(t *testing.T) {
 		key := strings.TrimPrefix(path, repository.WorkDir(repo))
 		kvPath := filepath.Join(repo.Name(), repo.Branch().Short(), key)
 		kvContent, _, err := handler.Get(kvPath, nil) //nolint:ineffassign,staticcheck
-		fileContent, err := ioutil.ReadFile(path)     //nolint:ineffassign,staticcheck
+		fileContent, err := os.ReadFile(path)         //nolint:ineffassign,staticcheck
 
 		assert.Equal(t, fileContent, kvContent.Value)
 		return nil
