@@ -64,7 +64,7 @@ func testPutKVRef(t *testing.T, branch string, key string, commit string, handle
 
 }
 
-func testPutKVRefModifiedIndex(t *testing.T, branch string, key string, commit string, handler *KVHandler, repo repository.Repo) {
+func testPutKVRefModifiedIndex(t *testing.T, branch string, key string, _ string, handler *KVHandler, repo repository.Repo) {
 	lastCommit, err := handler.getKVRef(repo, branch)
 	if err != nil {
 		t.Fatal(err)

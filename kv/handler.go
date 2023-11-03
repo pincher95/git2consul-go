@@ -90,7 +90,7 @@ func newAPIClient(config *config.ConsulConfig) (*api.Client, error) {
 }
 
 // Put overrides Consul API Put function to add entry to KVTxnOps.
-func (h *KVHandler) Put(kvPair *api.KVPair, wOptions *api.WriteOptions) (*api.WriteMeta, error) {
+func (h *KVHandler) Put(kvPair *api.KVPair, _ *api.WriteOptions) (*api.WriteMeta, error) {
 	txnItem := &api.KVTxnOp{
 		Verb:  api.KVSet,
 		Key:   kvPair.Key,
@@ -101,7 +101,7 @@ func (h *KVHandler) Put(kvPair *api.KVPair, wOptions *api.WriteOptions) (*api.Wr
 }
 
 // Delete overrides Consul API Delete function to add entry to KVTxnOps.
-func (h *KVHandler) Delete(key string, wOptions *api.WriteOptions) (*api.WriteMeta, error) {
+func (h *KVHandler) Delete(key string, _ *api.WriteOptions) (*api.WriteMeta, error) {
 	txnItem := &api.KVTxnOp{
 		Verb: api.KVDelete,
 		Key:  key,
@@ -111,7 +111,7 @@ func (h *KVHandler) Delete(key string, wOptions *api.WriteOptions) (*api.WriteMe
 }
 
 // DeleteTree overrides Consul API DeleteTree function to add entry to KVTxnOps.
-func (h *KVHandler) DeleteTree(key string, wOptions *api.WriteOptions) (*api.WriteMeta, error) {
+func (h *KVHandler) DeleteTree(key string, _ *api.WriteOptions) (*api.WriteMeta, error) {
 	txnItem := &api.KVTxnOp{
 		Verb: api.KVDeleteTree,
 		Key:  key,
