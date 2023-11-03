@@ -19,8 +19,8 @@ package repository
 import (
 	"fmt"
 
-	"github.com/KohlsTechnology/git2consul-go/config"
 	"github.com/apex/log"
+	"github.com/pincher95/git2consul-go/config"
 )
 
 // LoadRepos populates Repository slice from configuration. It also

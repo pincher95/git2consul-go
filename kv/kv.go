@@ -17,8 +17,8 @@ limitations under the License.
 package kv
 
 import (
-	"github.com/KohlsTechnology/git2consul-go/repository"
 	"github.com/hashicorp/consul/api"
+	"github.com/pincher95/git2consul-go/repository"
 )
 
 // PutKV triggers an KV api request to put data to the Consul.
@@ -56,7 +56,7 @@ func (h *KVHandler) PutKV(repo repository.Repo, prefix string, value []byte) err
 	return nil
 }
 
-//DeleteKV deletes provided item from the KV store.
+// DeleteKV deletes provided item from the KV store.
 func (h *KVHandler) DeleteKV(repo repository.Repo, prefix string) error {
 	key, status, err := getItemKey(repo, prefix)
 	if err != nil {
@@ -78,7 +78,7 @@ func (h *KVHandler) DeleteKV(repo repository.Repo, prefix string) error {
 	return nil
 }
 
-//DeleteTreeKV deletes recursively all the keys with given prefix.
+// DeleteTreeKV deletes recursively all the keys with given prefix.
 func (h *KVHandler) DeleteTreeKV(repo repository.Repo, prefix string) error {
 	key, status, err := getItemKey(repo, prefix)
 	if err != nil {

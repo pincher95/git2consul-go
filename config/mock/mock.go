@@ -20,7 +20,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/KohlsTechnology/git2consul-go/config"
+	"github.com/pincher95/git2consul-go/config"
 )
 
 // RepoConfig returns a mock Repo config object

@@ -24,7 +24,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/KohlsTechnology/git2consul-go/repository"
+	"github.com/pincher95/git2consul-go/repository"
 	"github.com/stretchr/testify/assert"
 	yaml "gopkg.in/yaml.v2"
 )

@@ -23,10 +23,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/KohlsTechnology/git2consul-go/config"
-	"github.com/KohlsTechnology/git2consul-go/kv/mocks"
-	"github.com/KohlsTechnology/git2consul-go/repository"
 	"github.com/apex/log"
+	"github.com/pincher95/git2consul-go/config"
+	"github.com/pincher95/git2consul-go/kv/mocks"
+	"github.com/pincher95/git2consul-go/repository"
 	"github.com/stretchr/testify/assert"
 )
 

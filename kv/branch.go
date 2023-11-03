@@ -20,9 +20,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/KohlsTechnology/git2consul-go/repository"
 	"github.com/apex/log"
 	"github.com/go-git/go-git/v5/plumbing"
+	"github.com/pincher95/git2consul-go/repository"
 )
 
 // Push a repository branch to the KV

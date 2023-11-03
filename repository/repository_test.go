@@ -20,12 +20,12 @@ import (
 	"os"
 	"testing"
 
-	"github.com/KohlsTechnology/git2consul-go/config/mock"
-	"github.com/KohlsTechnology/git2consul-go/repository/mocks"
+	"github.com/pincher95/git2consul-go/config/mock"
+	"github.com/pincher95/git2consul-go/repository/mocks"
 	"github.com/stretchr/testify/assert"
 )
 
-//TestNew verifies repository.Repository object iniciator.
+// TestNew verifies repository.Repository object iniciator.
 func TestNew(t *testing.T) {
 	_, remotePath := mocks.InitRemote(t)
 	defer os.RemoveAll(remotePath)

@@ -20,10 +20,10 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/KohlsTechnology/git2consul-go/repository"
 	"github.com/go-git/go-git/v5/plumbing"
 	"github.com/go-git/go-git/v5/plumbing/object"
 	"github.com/go-git/go-git/v5/utils/merkletrie"
+	"github.com/pincher95/git2consul-go/repository"
 )
 
 // HandleInit handles initial fetching of the KV on start

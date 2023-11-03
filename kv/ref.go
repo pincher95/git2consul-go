@@ -20,9 +20,9 @@ import (
 	"fmt"
 	"path"
 
-	"github.com/KohlsTechnology/git2consul-go/repository"
 	"github.com/go-git/go-git/v5/plumbing"
 	"github.com/hashicorp/consul/api"
+	"github.com/pincher95/git2consul-go/repository"
 )
 
 // Get local branch ref from the KV

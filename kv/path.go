@@ -21,10 +21,10 @@ import (
 	"path"
 	"strings"
 
-	"github.com/KohlsTechnology/git2consul-go/repository"
+	"github.com/pincher95/git2consul-go/repository"
 )
 
-//Status codes for path formatting
+// Status codes for path formatting
 const (
 	SourceRootNotInPrefix = iota
 	PathFormatterOK

@@ -20,9 +20,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/KohlsTechnology/git2consul-go/config/mock"
-	"github.com/KohlsTechnology/git2consul-go/repository/mocks"
 	git "github.com/go-git/go-git/v5"
+	"github.com/pincher95/git2consul-go/config/mock"
+	"github.com/pincher95/git2consul-go/repository/mocks"
 	"github.com/stretchr/testify/assert"
 )
 

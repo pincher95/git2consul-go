@@ -19,12 +19,12 @@ package mocks
 import (
 	"testing"
 
-	"github.com/KohlsTechnology/git2consul-go/config"
 	"github.com/go-git/go-billy/v5/osfs"
 	git "github.com/go-git/go-git/v5"
 	"github.com/go-git/go-git/v5/plumbing"
 	"github.com/go-git/go-git/v5/plumbing/object"
 	"github.com/go-git/go-git/v5/storage"
+	"github.com/pincher95/git2consul-go/config"
 )
 
 // Repo TODO write a useful documentation here

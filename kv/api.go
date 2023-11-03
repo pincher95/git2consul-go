@@ -17,11 +17,11 @@ limitations under the License.
 package kv
 
 import (
-	"github.com/KohlsTechnology/git2consul-go/repository"
 	"github.com/hashicorp/consul/api"
+	"github.com/pincher95/git2consul-go/repository"
 )
 
-//Handler interface for Key-Value store.
+// Handler interface for Key-Value store.
 type Handler interface {
 	PutKV(repository.Repo, string, []byte) error
 	DeleteKV(repository.Repo, string) error
@@ -29,7 +29,7 @@ type Handler interface {
 	HandleUpdate(repository.Repo) error
 }
 
-//API minimal Consul KV api implementation
+// API minimal Consul KV api implementation
 type API interface {
 	Get(string, *api.QueryOptions) (*api.KVPair, *api.QueryMeta, error)
 	Put(*api.KVPair, *api.WriteOptions) (*api.WriteMeta, error)

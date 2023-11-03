@@ -21,15 +21,15 @@ import (
 	"path"
 	"testing"
 
-	"github.com/KohlsTechnology/git2consul-go/config"
-	"github.com/KohlsTechnology/git2consul-go/kv/mocks"
-	"github.com/KohlsTechnology/git2consul-go/repository"
 	"github.com/apex/log"
 	"github.com/hashicorp/consul/api"
+	"github.com/pincher95/git2consul-go/config"
+	"github.com/pincher95/git2consul-go/kv/mocks"
+	"github.com/pincher95/git2consul-go/repository"
 	"github.com/stretchr/testify/assert"
 )
 
-//TestPutKVRef test functionality of putKVRef function.
+// TestPutKVRef test functionality of putKVRef function.
 func TestKVRef(t *testing.T) {
 	var repo repository.Repo = &mocks.Repo{Config: &config.Repo{}, T: t}
 	repo.Pull("master") //nolint:errcheck

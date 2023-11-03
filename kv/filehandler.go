@@ -22,7 +22,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/KohlsTechnology/git2consul-go/repository"
+	"github.com/pincher95/git2consul-go/repository"
 	"gopkg.in/yaml.v2"
 )
 

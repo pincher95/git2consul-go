@@ -1,13 +1,13 @@
-Starting with release v0.1.2 See the [releases page](https://github.com/KohlsTechnology/git2consul-go/releases).
+Starting with release v0.1.2 See the [releases page](https://github.com/pincher95/git2consul-go/releases).
 
 ## v0.1.1 (January 6, 2020)
 FEATURES:
 * None
 
 CHANGES:
-* Update to Go 1.13 and switch to Go Modules [GH-16](https://github.com/KohlsTechnology/git2consul-go/pull/16)
-* Add git branch, git commit, Go version, and build date to version output [GH-19](https://github.com/KohlsTechnology/git2consul-go/pull/19)
-* Enable gitter for this repo [GH-23](https://github.com/KohlsTechnology/git2consul-go/pull/23)
+* Update to Go 1.13 and switch to Go Modules [GH-16](https://github.com/pincher95/git2consul-go/pull/16)
+* Add git branch, git commit, Go version, and build date to version output [GH-19](https://github.com/pincher95/git2consul-go/pull/19)
+* Enable gitter for this repo [GH-23](https://github.com/pincher95/git2consul-go/pull/23)
 
 BUG FIXES:
 * None
