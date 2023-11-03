@@ -33,13 +33,13 @@ jobs:
           skip-build-cache: true
       - name: Test
         run: make test-unit
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
-        with:
-          token: ${{secrets.CODECOV_TOKEN}}
-          fail_ci_if_error: true
-          files: ./coverage.xml
-          verbose: true
+      # - name: Upload coverage to Codecov
+      #   uses: codecov/codecov-action@v3
+      #   with:
+      #     token: ${{secrets.CODECOV_TOKEN}}
+      #     fail_ci_if_error: true
+      #     files: ./coverage.xml
+      #     verbose: true
       - name: Image Build
         run: make image
       - name: Install GoReleaser
