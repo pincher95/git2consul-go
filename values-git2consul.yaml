@@ -1,0 +1,17 @@
+consul:
+  addr: consul-staging-us-east-1.internal.logz.io
+
+image:
+  repository: 406095609952.dkr.ecr.us-east-1.amazonaws.com/git2consul
+  tag: latest
+  
+deployment:
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      memory: 256Mi
+
+provider: aws
+environment: staging

@@ -85,9 +85,6 @@ func (r *Repository) Branch() plumbing.ReferenceName {
 		return ""
 	}
 	bn := head.Name()
-	if err != nil {
-		return ""
-	}
 
 	return bn
 }

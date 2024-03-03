@@ -59,9 +59,6 @@ func (h *KVHandler) UpdateToHead(repo repository.Repo) error {
 		return err
 	}
 	refName := head.Name().Short()
-	if err != nil {
-		return err
-	}
 
 	h.logger.Infof("KV GET ref: %s/%s", repo.Name(), refName)
 	kvRef, err := h.getKVRef(repo, refName)
